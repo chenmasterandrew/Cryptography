@@ -19,6 +19,7 @@ def crypt(opt, message, key):
     nummessage = []
     numkey = []
     index = 0
+    output = ""
     for char in message:
         nummessage.append(associations.find(char))
     for char in key:
@@ -34,7 +35,8 @@ def crypt(opt, message, key):
             nummessage[index] -= numkey[keyindex]
         index += 1
     for num in nummessage:
-        print (associations[num], end = "")
+        output += associations[num]
+    print (output)
 
 def chooseopt():
     opt = input("Enter e to encrypt, d to decrypt, or q to quit: ")
