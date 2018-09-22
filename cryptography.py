@@ -19,6 +19,7 @@ def crypt(opt, message, key):
     nummessage = []
     numkey = []
     index = 0
+    keyindex = 0
     output = ""
     for char in message:
         nummessage.append(associations.find(char))
@@ -26,7 +27,7 @@ def crypt(opt, message, key):
         numkey.append(associations.find(char))
     for x in range(0,len(nummessage)):
         
-        keyindex = keymaster(index, len(numkey)-1)
+        keyindex = keymaster(keyindex, len(numkey)-1)
         if opt == "e":
             nummessage[index] += numkey[keyindex]
             if nummessage[index] > 84:
@@ -34,6 +35,7 @@ def crypt(opt, message, key):
         else:
             nummessage[index] -= numkey[keyindex]
         index += 1
+        keyindex += 1
     for num in nummessage:
         output += associations[num]
     print (output)
