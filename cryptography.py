@@ -37,6 +37,7 @@ def crypt(opt, message, key):
     for num in nummessage:
         output += associations[num]
     print (output)
+    chooseopt()
 
 def chooseopt():
     opt = input("Enter e to encrypt, d to decrypt, or q to quit: ")
